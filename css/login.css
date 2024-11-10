@@ -1,0 +1,108 @@
+body {
+  background-image: url("../img/lavanda.jpg");
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+input,
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+#loginMessage {
+  color: red;
+  margin-top: 10px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+label, input, button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Estilo do botão */
+button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Estilos para mensagens de erro e sucesso */
+.message {
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.message.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.message.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+/* Estilo para campos de input */
+input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #80bdff;
+  outline: none;
+}

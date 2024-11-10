@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("../img/eldorado.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.header {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.nav {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.nav a {
+  margin: 0 15px;
+  color: white;
+  background-color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.nav a:hover {
+  background-color: #45a049;
+}
+
+.carrinho {
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.produto-carrinho {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.produto-carrinho:last-child {
+  border-bottom: none;
+}
+
+.produto-carrinho h3 {
+  margin: 0;
+}
+
+.produto-carrinho p {
+  margin: 5px 0;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.finalizar {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.finalizar:hover {
+  background-color: #45a049;
+}

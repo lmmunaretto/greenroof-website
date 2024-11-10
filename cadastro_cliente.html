@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Cliente</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/cadastro_cliente.css" />
+  </head>
+  <body>
+    <div class="header">Cadastro de Clientes</div>
+
+    <div id="fabMenu" class="fab-menu">
+      <button class="fab-button">+</button>
+      <div class="fab-options"></div>
+    </div>
+
+    <div class="container">
+      <form id="cadastroClienteForm">
+        <input type="text" id="nome" placeholder="Nome do Cliente" required />
+        <input type="text" id="cpf" placeholder="CPF" required />
+        <input type="text" id="endereco" placeholder="Endereço" required />
+        <input type="email" id="email" placeholder="E-mail" required />
+        <input type="text" id="telefone" placeholder="Telefone" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+      <div id="cadastroMessage"></div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/cadastro_cliente.js"></script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+/* Estilos Gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("../img/eldorado.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Busca */
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Ajuste de espaçamento */
+  margin: 20px;
+}
+
+.busca input[type="text"] {
+  padding: 10px;
+  width: 400px;
+  max-width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.busca button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.busca button:hover {
+  background-color: #45a049;
+}
+
+/* Produtos */
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.produto {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  width: 298px;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.produto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.produto h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.produto p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Quantidade e botão "Adicionar ao Carrinho" */
+.quantidade-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-add {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.quantidade {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.produto button.adicionar-carrinho {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 16px;
+}
+
+.produto button.adicionar-carrinho:hover {
+  background-color: #45a049;
+}
+
+/* Tooltip para Informações Nutricionais */
+.produto .nutricional {
+  display: none;
+  position: absolute;
+  background-color: rgb(245 245 245);
+  border: 1px solid #ddd;
+  padding: 24px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 87%;
+  overflow: auto;
+}
+
+.produto:hover .nutricional {
+  display: block;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #409645;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sugestões de Cultivo</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/sugestoes_cultivo.css">
+</head>
+<body>
+    <div class="header">Sugestões de Cultivo</div>
+
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options">
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Cultivos Baseadas na Localização</h2>
+        <select id="epocaAno">
+            <option value="primavera">Primavera</option>
+            <option value="verao">Verão</option>
+            <option value="outono">Outono</option>
+            <option value="inverno">Inverno</option>
+        </select>
+        <button onclick="obterSugestoes()">Obter Sugestões</button>
+        <div id="sugestoes"></div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/sugestoes_cultivo.js"></script>
+</body>
+</html>

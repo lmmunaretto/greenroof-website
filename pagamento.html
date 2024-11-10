@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/pagamento.css">
+</head>
+<body>
+    <div class="header">Pagamento</div>
+
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options">
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Formas de Pagamento</h2>
+
+        <div class="form-group">
+            <label for="pedido-id">Pedido ID:</label>
+            <input type="text" id="pedido-id" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="metodo-pagamento">Escolha o método de pagamento:</label>
+            <select id="metodo-pagamento">
+                <option value="credito">Cartão de Crédito</option>
+                <option value="debito">Cartão de Débito</option>
+                <option value="pix">Pix</option>
+                <option value="boleto">Boleto Bancário</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="valor-pagamento">Valor do Pagamento:</label>
+            <input type="text" id="valor-pagamento" readonly>
+        </div>
+
+        <button class="btn" onclick="concluirPagamento()">Concluir Pagamento</button>
+        <button class="btn btn-voltar" onclick="voltarParaCarrinho()">Voltar para Produtos</button>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/pagamento.js"></script>
+</body>
+</html>

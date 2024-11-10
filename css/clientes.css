@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../img/eldorado.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cliente-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cliente-item:last-child {
+    border-bottom: none;
+}
+
+.cliente-item h3 {
+    margin: 0;
+}
+
+.cliente-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.count {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    margin: 0 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination-controls button:hover:not([disabled]) {
+    background-color: #45a049;
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    font-size: 16px;
+    color: #333;
+}

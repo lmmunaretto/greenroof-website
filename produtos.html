@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greenroof - Produtos</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/produtos.css" />
+  </head>
+  <body>
+    <div class="header">Greenroof</div>
+
+    <div id="fabMenu" class="fab-menu">
+      <button class="fab-button">+</button>
+      <div class="fab-options"></div>
+    </div>
+
+    <div class="busca">
+      <input
+        type="text"
+        id="buscaInput"
+        placeholder="Buscar produtos..."
+        oninput="buscarProduto()"
+      />
+      <button onclick="buscarProduto()">Buscar</button>
+    </div>
+
+    <div class="produtos" id="produtosContainer"></div>
+    <div class="alert" id="alert">Produto adicionado ao carrinho!</div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/produtos.js"></script>
+  </body>
+</html>

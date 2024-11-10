@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options">
+        </div>
+    </div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div id="loginMessage" style="color: red; margin-top: 10px;"></div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Troca de Senha</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/trocar_senha.css">
+</head>
+<body>
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options">
+        </div>
+    </div>
+
+    <div class="senha-container">
+        <h2>Trocar Senha</h2>
+        <form id="trocarSenhaForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="senhaAtual" placeholder="Senha Atual" required>
+            <input type="password" id="novaSenha" placeholder="Nova Senha" required>
+            <input type="password" id="confirmarNovaSenha" placeholder="Confirmar Nova Senha" required>
+            <button type="submit">Trocar Senha</button>
+        </form>
+        <div id="trocaSenhaMessage"></div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/trocar_senha.js"></script>
+</body>
+</html>
