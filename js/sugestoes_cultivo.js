@@ -1,7 +1,6 @@
 // Função para obter a cidade a partir da geolocalização
 async function obterCidade(latitude, longitude) {
-    const apiKey = '5db5a96f174d46e389853c0ec12d44a2'; // Substitua pela sua chave da OpenCage
-    const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}&language=pt`;
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${LOCALIZATION_API_KEY}&language=pt`;
 
     try {
         const response = await fetch(url);

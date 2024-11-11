@@ -1,4 +1,3 @@
-const unsplashApiKey = "kUg4WZZWtRDakNeUEnfwTlm7Rdb8wbz-Jc_3cF23vXM";
 let produtos = [];
 let quantidadeTotalCarrinho = 0;
 let valorTotalCarrinho = 0;
@@ -435,7 +434,7 @@ function verificarImagemSimilar(nomeProduto) {
 // Função para buscar imagem no Unsplash
 async function buscarImagemUnsplash(nomeProduto) {
     const produtoNomeTraduzido = traducoes[nomeProduto.toLowerCase()] || nomeProduto;
-    const url = `https://api.unsplash.com/search/photos?query=${produtoNomeTraduzido}&client_id=${unsplashApiKey}`;
+    const url = `https://api.unsplash.com/search/photos?query=${produtoNomeTraduzido}&client_id=${UNSPLASH_API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();

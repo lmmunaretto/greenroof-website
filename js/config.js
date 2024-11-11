@@ -1,4 +1,7 @@
-const API_BASE_URL = "https://greenroofapi-production.up.railway.app";
+window.API_BASE_URL = window.API_BASE_URL || "https://greenroofapi-production.up.railway.app";
+window.UNSPLASH_API_KEY = window.UNSPLASH_API_KEY || "kUg4WZZWtRDakNeUEnfwTlm7Rdb8wbz-Jc_3cF23vXM";
+window.LOCALIZATION_API_KEY = window.LOCALIZATION_API_KEY || "5db5a96f174d46e389853c0ec12d44a2";
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const fabMenu = document.getElementById("fabMenu");
