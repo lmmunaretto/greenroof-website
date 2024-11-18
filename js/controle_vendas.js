@@ -46,7 +46,7 @@ function renderizarPagina(pageNumber) {
         <div class="card venda-item">
             <h3>Pedido: ${venda.id}</h3>
             <p>Cliente: ${venda.clienteNome}</p>
-            <p>Data: ${new Date(venda.dataPedido).toLocaleDateString()}</p>
+            <p>Data: ${venda.dataPedido ? new Date(venda.dataPedido).toLocaleDateString() : "Data não disponível"}</p>
             <p>Total: R$ ${venda.totalPedido.toFixed(2)}</p>
             <label for="statusSelect_${venda.id}">Status:</label>
             <select id="statusSelect_${venda.id}" onchange="atualizarStatus(${venda.id})" ${venda.status === "Concluído" ? "disabled" : ""}>
@@ -57,8 +57,8 @@ function renderizarPagina(pageNumber) {
             </select>
             <h4>Itens:</h4>
             <ul>
-                ${venda.itens.map(item => `
-                    <li>${item.produtoNome} - Quantidade: ${item.quantidade} - Preço Unitário: R$ ${item.precoUnitario.toFixed(2)}</li>
+                ${venda.itemPedido.map(item => `
+                    <li>${item.produtoNome || "Produto não informado"} - Quantidade: ${item.quantidade || 0} - Preço Unitário: R$ ${item.precoUnitario?.toFixed(2) || "0,00"}</li>
                 `).join("")}
             </ul>
         </div>
