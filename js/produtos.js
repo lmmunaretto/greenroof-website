@@ -50,8 +50,8 @@ async function carregarPedidoAtual() {
         if (!response.ok) throw new Error("Erro ao carregar o pedido.");
 
         const pedido = await response.json();
-        if (pedido.itemPedido && pedido.itemPedido.$values) {
-            pedidoItens = pedido.itemPedido.$values.reduce((acc, item) => {
+        if (pedido.itemPedido && pedido.itemPedido) {
+            pedidoItens = pedido.itemPedido.reduce((acc, item) => {
                 acc[item.produtoId] = { quantidade: item.quantidade || 0, preco: item.precoUnitario || 0, itemPedidoId: item.id || null };
                 return acc;
             }, {});
@@ -78,7 +78,7 @@ async function buscarPedidoAberto() {
         if (!response.ok) throw new Error("Erro ao buscar pedidos em aberto.");
 
         const pedidos = await response.json();
-        const pedidoAberto = pedidos.$values.find(pedido => pedido.clienteId === parseInt(clienteId) && pedido.status === "Aguardando Processamento");
+        const pedidoAberto = pedidos.find(pedido => pedido.clienteId === parseInt(clienteId) && pedido.status === "Aguardando Processamento");
         return pedidoAberto ? pedidoAberto.id : null;// Retorna o id do primeiro pedido em aberto ou null
 
     } catch (error) {
@@ -92,7 +92,7 @@ async function carregarProdutos() {
     try {
         const response = await fetch(`${API_BASE_URL}/api/produtos`);
         const data = await response.json();
-        produtos = data.$values || [];
+        produtos = data || [];
         exibirProdutos(produtos);
     } catch (error) {
         console.error("Erro ao carregar produtos:", error);
@@ -108,7 +108,6 @@ function exibirProdutos(produtos) {
         const quantidadeInicial = pedidoItens[produto.id]?.quantidade || 0;
         obterImagemProduto(produto.nome).then((imgSrc) => {
             produtosContainer.appendChild(criarElementoProduto(produto, imgSrc, quantidadeInicial));
-            obterInformacaoNutricional(produto.id); // Obter informações nutricionais para o produto
         });
     });
 }
@@ -132,7 +131,9 @@ function criarElementoProduto(produto, imgSrc, quantidadeInicial) {
       ${botoesQuantidade}
       <div class="nutricional" id="nutricional-${produto.id}">
           <h4>Informações Nutricionais</h4>
-          <div id="info-${produto.id}">Carregando...</div>
+          <div id="info-${produto.id}">
+          <p>Calorias: ${produto.informacoesNutricionais.calorias}</p><p>Carboidratos: ${produto.informacoesNutricionais.carboidratos}g</p><p>Proteínas: ${produto.informacoesNutricionais.proteinas}g</p><p>Gorduras: ${produto.informacoesNutricionais.gorduras}g</p>
+          </div>
       </div>
   `;
   return produtoDiv;
@@ -313,10 +314,10 @@ async function carregarCarrinho() {
         });
 
         const pedido = await response.json();
-        if (pedido.itemPedido && pedido.itemPedido.$values.length === 0) {
+        if (pedido.itemPedido && pedido.itemPedido.length === 0) {
             carrinhoDiv.innerHTML = "<p>Seu carrinho está vazio.</p>";
         } else {
-            pedido.itemPedido.$values.forEach(item => {
+            pedido.itemPedido.forEach(item => {
                 total += item.quantidade * item.precoUnitario;
                 carrinhoDiv.innerHTML += `
                     <div>
@@ -391,27 +392,6 @@ async function atualizarValorTotalPedido(pedidoId) {
         if (!responseUpdate.ok) throw new Error("Erro ao atualizar os dados do pedido.");
     } catch (error) {
         console.error("Erro ao atualizar o valor total do pedido:", error);
-    }
-}
-
-// Função para obter e exibir informações nutricionais
-async function obterInformacaoNutricional(produtoId) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/InformacoesNutricionais`);
-        const dadosNutricionais = await response.json();
-
-        if (dadosNutricionais.$values && Array.isArray(dadosNutricionais.$values)) {
-            const info = dadosNutricionais.$values.find((n) => n.produtoId === produtoId);
-            const infoDiv = document.getElementById(`info-${produtoId}`);
-
-            if (infoDiv) {
-                infoDiv.innerHTML = info
-                    ? `<p>Calorias: ${info.calorias}</p><p>Carboidratos: ${info.carboidratos}g</p><p>Proteínas: ${info.proteinas}g</p><p>Gorduras: ${info.gorduras}g</p>`
-                    : "<p>Informação nutricional não disponível.</p>";
-            }
-        }
-    } catch (error) {
-        console.error("Erro ao obter informações nutricionais:", error);
     }
 }
 

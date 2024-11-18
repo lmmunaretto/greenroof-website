@@ -1,22 +1,27 @@
-let produtos = [];
+let produtosFornecedor = [];
 
 // Carregar fornecedores e produtos simultaneamente
 async function carregarFornecedores() {
     try {
         const [fornecedoresResponse, produtosResponse] = await Promise.all([
-            fetch(`${API_BASE_URL}/api/Fornecedores`),
-            fetch(`${API_BASE_URL}/api/Produtos`)
+            fetch(`${API_BASE_URL}/api/Fornecedores`, {
+                headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+            }),
+            fetch(`${API_BASE_URL}/api/ProdutosFornecedor`, {
+                headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+            })
         ]);
 
         const fornecedoresData = await fornecedoresResponse.json();
         const produtosData = await produtosResponse.json();
 
-        const fornecedores = fornecedoresData.$values || [];
-        produtos = produtosData.$values || [];
+        const fornecedores = fornecedoresData || [];
+        produtosFornecedor = produtosData || [];
 
         exibirFornecedores(fornecedores);
     } catch (error) {
         console.error("Erro ao carregar fornecedores e produtos:", error);
+        alert("Erro ao carregar dados. Por favor, tente novamente.");
     }
 }
 
@@ -25,8 +30,8 @@ function exibirFornecedores(fornecedores) {
     tableBody.innerHTML = "";
 
     fornecedores.forEach(fornecedor => {
-        const produtosDoFornecedor = produtos.filter(produto => produto.fornecedorId === fornecedor.id);
-        
+        const produtosDoFornecedor = produtosFornecedor.filter(produto => produto.fornecedorId === fornecedor.id);
+
         const count = produtosDoFornecedor.length; // Contagem de produtos
         const totalQuantity = produtosDoFornecedor.reduce((total, produto) => total + produto.quantidade, 0); // Soma das quantidades
 
@@ -53,7 +58,7 @@ function abrirModal(fornecedorId) {
     const produtosList = document.getElementById('produtosList');
     produtosList.innerHTML = '';
 
-    const produtosDoFornecedor = produtos.filter(produto => produto.fornecedorId === fornecedorId);
+    const produtosDoFornecedor = produtosFornecedor.filter(produto => produto.fornecedorId === fornecedorId);
 
     if (produtosDoFornecedor.length === 0) {
         // Exibir mensagem se não houver produtos cadastrados
@@ -66,7 +71,12 @@ function abrirModal(fornecedorId) {
         produtosDoFornecedor.forEach(produto => {
             const div = document.createElement('div');
             div.className = 'produto-item';
-            div.innerText = `Nome: ${produto.nome}, Quantidade: ${produto.quantidade}, Tipo: ${produto.tipo}`;
+            div.innerHTML = `
+                <strong>Nome:</strong> ${produto.nome} <br>
+                <strong>Quantidade:</strong> ${produto.quantidade} <br>
+                <strong>Tipo:</strong> ${produto.tipo} <br>
+                <strong>Preço:</strong> R$ ${produto.preco.toFixed(2)}
+            `;
             produtosList.appendChild(div);
         });
     }

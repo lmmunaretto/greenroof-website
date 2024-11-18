@@ -73,7 +73,7 @@ async function atualizarEstoqueProdutos(pedidoId) {
         const pedido = await response.json();
 
         // Atualiza a quantidade de cada produto com base nos itens do pedido
-        for (const item of pedido.itemPedido.$values) {
+        for (const item of pedido.itemPedido) {
             await atualizarProduto(item.produtoId, item.quantidade);
         }
     } catch (error) {

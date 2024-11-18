@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <title>Fornecedores</title>
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/fornecedores.css" />
-  </head>
-  <body>
+</head>
+<body>
     <div class="header">Lista de Fornecedores</div>
 
     <div id="fabMenu" class="fab-menu">
-      <button class="fab-button">+</button>
-      <div class="fab-options"></div>
+        <button class="fab-button">+</button>
+        <div class="fab-options"></div>
     </div>
 
     <div class="container">
-      <table id="fornecedoresTable">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>CNPJ</th>
-            <th>Endereço</th>
-            <th>Produtos cadastrados</th>
-            <th>Produtos (Quantidades)</th>
-            <th>Quantidade total de unid. compradas</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+        <table id="fornecedoresTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>CNPJ</th>
+                    <th>Endereço</th>
+                    <th>Produtos cadastrados</th>
+                    <th>Produtos (Quantidades)</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 
     <div id="produtosModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="fecharModal()">&times;</span>
-        <h2>Produtos</h2>
-        <div id="produtosList"></div>
-      </div>
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>Produtos</h2>
+            <div id="produtosList"></div>
+        </div>
     </div>
 
     <script src="js/config.js"></script>
     <script src="js/autenticar.js"></script>
     <script src="js/fornecedores.js"></script>
-  </body>
+</body>
 </html>

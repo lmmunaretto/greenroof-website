@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastro de Produtos do Fornecedor</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/cadastro_produtos_fornecedor.css" />
+</head>
+<body>
+    <div class="header">Cadastro de Produtos do Fornecedor</div>
+
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options"></div>
+    </div>
+
+    <div class="container">
+        <form id="cadastroProdutoFornecedorForm">
+            <input
+                type="text"
+                id="nomeProduto"
+                placeholder="Nome do Produto"
+                required
+            />
+            <input type="text" id="descricao" placeholder="Descrição" required />
+            <input
+                type="number"
+                id="quantidade"
+                placeholder="Quantidade"
+                required
+                step="0.01"
+            />
+            <input
+                type="number"
+                id="preco"
+                placeholder="Preço"
+                required
+                step="0.01"
+            />
+
+            <select id="tipoProduto" required>
+                <option value="" disabled selected>Selecione o tipo</option>
+                <option value="fertilizante">Fertilizante</option>
+                <option value="semente">Semente</option>
+                <option value="outro">Outro</option>
+            </select>
+
+            <select id="fornecedor" required>
+                <option value="" disabled selected>Selecione o fornecedor</option>
+            </select>
+
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/cadastro_produtos_fornecedor.js"></script>
+</body>
+</html>

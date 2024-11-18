@@ -17,7 +17,7 @@ async function carregarVendas() {
         }
 
         const vendasResponse = await response.json();
-        vendas = vendasResponse.$values;
+        vendas = vendasResponse;
 
         // Filtra vendas por ano e mês selecionados
         if (filtroAno) {
@@ -57,8 +57,8 @@ function renderizarPagina(pageNumber) {
             </select>
             <h4>Itens:</h4>
             <ul>
-                ${venda.itens.$values.map(item => `
-                    <li>${item.nome} - Quantidade: ${item.quantidade} - Preço Unitário: R$ ${item.precoUnitario.toFixed(2)}</li>
+                ${venda.itens.map(item => `
+                    <li>${item.produtoNome} - Quantidade: ${item.quantidade} - Preço Unitário: R$ ${item.precoUnitario.toFixed(2)}</li>
                 `).join("")}
             </ul>
         </div>

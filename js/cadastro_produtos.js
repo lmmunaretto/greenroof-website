@@ -1,22 +1,3 @@
-// Função para carregar fornecedores e preencher o select
-async function carregarFornecedores() {
-    const response = await fetch(`${API_BASE_URL}/api/fornecedores`, {
-        method: "GET",
-        headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
-    });
-
-    const fornecedoresResponse = await response.json();
-    const fornecedores = fornecedoresResponse.$values;
-    const fornecedorSelect = document.getElementById("fornecedorSelect");
-
-    fornecedores.forEach(fornecedor => {
-        const option = document.createElement("option");
-        option.value = fornecedor.id;
-        option.textContent = fornecedor.nome;
-        fornecedorSelect.appendChild(option);
-    });
-}
-
 // Função para cadastrar um novo produto
 async function cadastrarProduto(event) {
     event.preventDefault();
@@ -29,7 +10,6 @@ async function cadastrarProduto(event) {
         limiteMinimoEstoque: document.getElementById("limiteMinimoEstoque").value,
         preco: document.getElementById("preco").value,
         tipo: document.getElementById("tipoProduto").value.toLowerCase(),
-        fornecedorId: document.getElementById("fornecedorSelect").value
     };
 
     // Cadastro do produto
@@ -45,13 +25,12 @@ async function cadastrarProduto(event) {
     const produto = await produtoResponse.json();
 
     if (produtoResponse.ok) {
-        // Dados das informações nutricionais
         const informacaoNutricionalData = {
-            calorias: document.getElementById("calorias").value,
-            carboidratos: document.getElementById("carboidratos").value,
-            proteinas: document.getElementById("proteinas").value,
-            gorduras: document.getElementById("gorduras").value,
-            fibras: document.getElementById("fibras").value,
+            calorias: parseInputValue(document.getElementById("calorias").value),
+            carboidratos: parseInputValue(document.getElementById("carboidratos").value),
+            proteinas: parseInputValue(document.getElementById("proteinas").value),
+            gorduras: parseInputValue(document.getElementById("gorduras").value),
+            fibras: parseInputValue(document.getElementById("fibras").value),
             produtoId: produto.id  // Associando ao produto recém-criado
         };
 
@@ -76,7 +55,11 @@ async function cadastrarProduto(event) {
     }
 }
 
+function parseInputValue(value) {
+    if (!value) return 0; // Se o valor estiver vazio, retorna 0
+    const normalizedValue = value.replace(',', '.'); // Substituir vírgula por ponto
+    return parseFloat(normalizedValue) || 0; // Converter para número ou retornar 0
+}
+
+
 document.getElementById("cadastroProdutoForm").addEventListener("submit", cadastrarProduto);
-document.addEventListener("DOMContentLoaded", () => {
-    carregarFornecedores();
-});

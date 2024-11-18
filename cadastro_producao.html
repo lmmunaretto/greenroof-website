@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Produção</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/cadastro_produtos.css">
+</head>
+<body>
+    <div class="header">Cadastro de Produção de Cultivo</div>
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options"></div>
+    </div>
+
+    <div class="container">
+        <form id="cadastroProducaoForm">
+            <select id="produtoId" required>
+                <option value="" disabled selected>Selecione o Produto</option>
+            </select>
+            <input
+                type="number"
+                id="quantidadeProduzida"
+                placeholder="Quantidade Produzida"
+                required
+                step="1"
+                min="1"
+            />
+            <input
+                type="date"
+                id="dataProducao"
+                placeholder="Data da Produção"
+                required
+                max="${new Date().toISOString().split('T')[0]}"
+            />
+            <button type="submit">Cadastrar Produção</button>
+        </form>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/cadastro_producao.js"></script>
+</body>
+</html>

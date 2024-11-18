@@ -63,7 +63,7 @@ function exibirSugestoes(sugestoes) {
 
     // Extrair informações com segurança
     const climaTemp = sugestoes.clima?.main?.temp ? `${sugestoes.clima.main.temp}°C` : "Dados de temperatura não disponíveis";
-    const climaDescricao = sugestoes.clima?.weather?.$values?.[0]?.description || "Descrição do clima não disponível";
+    const climaDescricao = sugestoes.clima?.weather?.[0]?.description || "Descrição do clima não disponível";
     const dadosAgricolasTemp = sugestoes.dadosAgricolas?.main?.temp ? `${sugestoes.dadosAgricolas.main.temp}°C` : "Temperatura agrícola não disponível";
     const dadosAgricolasUmidade = sugestoes.dadosAgricolas?.main?.humidity ? `${sugestoes.dadosAgricolas.main.humidity}%` : "Umidade agrícola não disponível";
     const sugestaoCultivo = sugestoes.sugestaoCultivo || "Sugestão de cultivo não disponível";

@@ -23,7 +23,7 @@ async function carregarClientes(pagina) {
         }
 
         const clientesResponse = await responseClientes.json();
-        const clientes = clientesResponse.$values;
+        const clientes = clientesResponse;
         clientesFiltrados = clientes.filter(cliente => cliente.adminId == adminId);
 
         const inicio = (pagina - 1) * clientesPorPagina;
@@ -63,7 +63,7 @@ async function carregarDadosPedidos(clientesPagina) {
         }
 
         const pedidosResponse = await responsePedidos.json();
-        const pedidos = pedidosResponse.$values;
+        const pedidos = pedidosResponse;
 
         const dadosClientes = new Map();
         clientesPagina.forEach(cliente => {

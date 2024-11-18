@@ -31,10 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = [
         { label: "Cadastro de Clientes", url: "cadastro_cliente.html", roles: ["Admin"] },
         { label: "Cadastro de Fornecedores", url: "cadastro_fornecedor.html", roles: ["Admin"] },
+        { label: "Cadastro de Produtos do Fornecedor", url: "cadastro_produtos_fornecedor.html", roles: ["Admin"] },
         { label: "Cadastro de Produtos", url: "cadastro_produtos.html", roles: ["Admin"] },
+        { label: "Cadastro de Cultivo", url: "cadastro_producao.html", roles: ["Admin"] },
         { label: "Clientes", url: "clientes.html", roles: ["Admin"] },
         { label: "Fornecedores", url: "fornecedor.html", roles: ["Admin"] },
         { label: "Controle de Vendas", url: "controle_vendas.html", roles: ["Admin"] },
+        { label: "Controle de Cultivo", url: "controle_cultivo.html", roles: ["Admin"] },
         { label: "Sugestões de Cultivo", url: "sugestoes_cultivo.html", roles: ["Admin"] },
         { label: "Carrinho", url: "carrinho.html", roles: ["Cliente"] },
         { label: "Pagamento", url: "pagamento.html", roles: ["Cliente"] },

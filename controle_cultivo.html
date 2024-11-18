@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Produção</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/controle_cultivo.css">
+</head>
+<body>
+    <div class="header">Controle de Produção</div>
+    <div id="fabMenu" class="fab-menu">
+        <button class="fab-button">+</button>
+        <div class="fab-options"></div>
+    </div>
+
+    <div class="container">
+        <div class="top-bar">
+            <div class="filtro">
+                <label for="filtroAno">Ano:</label>
+                <select id="filtroAno" onchange="carregarProducao()"></select>
+
+                <label for="filtroMes">Mês:</label>
+                <select id="filtroMes" onchange="carregarProducao()">
+                    <option value="">Todos</option>
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">Julho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+
+                <label for="filtroDia">Dia:</label>
+                <input type="date" id="filtroDia" onchange="carregarProducao()" />
+            </div>
+        </div>
+
+        <div id="producaoList"></div>
+        
+        <!-- Controle de Paginação -->
+        <div class="pagination">
+            <button id="prevPage" onclick="changePage(-1)">Página Anterior</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage" onclick="changePage(1)">Próxima Página</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/autenticar.js"></script>
+    <script src="js/controle_producao.js"></script>
+</body>
+</html>
