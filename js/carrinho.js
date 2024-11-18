@@ -30,11 +30,11 @@ async function carregarCarrinho() {
         carrinhoDiv.innerHTML += `<h2>Pedido #${pedido.id}</h2>`;
 
         // Preenche pedidoItens e exibe os itens no carrinho
-        if (!pedido.itemPedido??.length) {
+        if (!pedido.itemPedido?.length) {
             carrinhoDiv.innerHTML += "<p>Seu carrinho está vazio.</p>";
         } else {
             pedido.itemPedido.forEach((item) => {
-                const produtoNome = item.produto?.nome || "Produto desconhecido";
+                const produtoNome = item.produtoNome || "Produto desconhecido";
                 const precoUnitario = item.precoUnitario || 0;
                 const quantidade = item.quantidade || 0;
 
