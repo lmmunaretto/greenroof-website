@@ -12,6 +12,9 @@ const arquivosImagens = [
   "alfacecrespa.jpg",
   "couvemanteiga.webp",
   "limaotahiti.jpg",
+  "melao.jpg",
+  "kiwi.jpg",
+  "ameixa.jpg"
 ];
 const traducoes = {
   tomate: "tomato",
@@ -23,6 +26,7 @@ const traducoes = {
   morango: "strawberrys",
   maracujá: " passion fruit",
   manga: "mangos fruta",
+  uva: "grapes"
 };
 
 // Inicialização ao carregar a página

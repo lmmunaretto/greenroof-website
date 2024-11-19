@@ -34,9 +34,9 @@ async function carregarClientes(pagina) {
             <div class="cliente-item">
                 <h3>${cliente.nome}</h3>
                 <p>Email: ${cliente.email}</p>
-                <p>Telefone: ${cliente.telefone}</p>
-                <p>CPF: ${cliente.cpf}</p>
-                <p>Endereço: ${cliente.endereco}</p>
+                <p>Telefone: ${cliente.telefone.replace(/\d(?=\d{4})/g, "*")}</p>
+                <p>CPF: ${cliente.cpf.replace(/\d(?=\d{2})/g, "*")}</p>
+                <p>Endereço: ${cliente.endereco.replace(/(\S{4})\S+/g, "$1***")}</p>
                 <p>Pedidos Realizados: <span class="count" id="pedidosCount-${cliente.id}">Carregando...</span></p>
                 <p>Total Gasto: R$ <span id="totalGasto-${cliente.id}">Carregando...</span></p>
             </div>

@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = [
         { label: "Cadastro de Clientes", url: "cadastro_cliente.html", roles: ["Admin"] },
         { label: "Cadastro de Fornecedores", url: "cadastro_fornecedor.html", roles: ["Admin"] },
-        { label: "Cadastro de Produtos do Fornecedor", url: "cadastro_produtos_fornecedor.html", roles: ["Admin"] },
+        { label: "Cadastro de Produtos Fornecedor", url: "cadastro_produtos_fornecedor.html", roles: ["Admin"] },
         { label: "Cadastro de Produtos", url: "cadastro_produtos.html", roles: ["Admin"] },
         { label: "Cadastro de Cultivo", url: "cadastro_producao.html", roles: ["Admin"] },
         { label: "Clientes", url: "clientes.html", roles: ["Admin"] },
